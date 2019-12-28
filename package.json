@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e js,pug server.js"
+    "dev": "nodemon -e js,mst server.js"
   },
   "author": "",
   "license": "ISC",

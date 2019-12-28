@@ -1,0 +1,5 @@
+<ul>
+ {{#pokemons}}
+    <li><a class='poke-anchor' id='{{name}}' href='javascript:void(0)'>{{name}}</a></li>
+ {{/pokemons}}
+</ul>

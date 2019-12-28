@@ -6,13 +6,16 @@ const cache = flatCache.load('PokemonsCache')
 const router = express.Router()
 
 router.get('/', getPokemons,(req, res) => {
-    try {
-        res.render('index', {
-            pokemons: req.pokemons
-        })
-    }catch(err){
-        console.log(err)
-    }
+    res.render('index', {
+        pokemons: req.pokemons
+    })
+})
+
+router.get('/:name', getPokemons, (req, res) => {
+    res.render('index', {
+        pokemons: req.pokemons,
+        selected: req.params.name
+    })
 })
 
 async function getPokemons(req, res, next) {

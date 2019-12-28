@@ -2,4 +2,6 @@
 <html>
 <head>
 <title>Pokedex</title>
+ <link rel="stylesheet" href="/css/pokemon.css">
 </head>
+<body>

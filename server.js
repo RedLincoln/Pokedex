@@ -5,9 +5,11 @@ const port = 8081
 const VIEWS_PATH = __dirname + '/views'
 const app =  express()
 
+app.use(express.static('public'))
+
 const indexRouter = require('./routes/index')
 
-app.use('/', indexRouter)
+app.use('/pokemon', indexRouter)
 
 
 app.engine('mst', mustache(VIEWS_PATH + '/partials', '.mst'))

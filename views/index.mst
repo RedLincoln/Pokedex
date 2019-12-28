@@ -1,0 +1,15 @@
+{{> header}}
+
+<body>
+ <ul>
+ {{#pokemons}}
+    <li>{{name}}[
+        {{#types}}
+            {{.}}
+        {{/types}}
+    ]</li>
+ {{/pokemons}}
+</body>
+</ul>
+
+{{> footer}}

@@ -1,5 +1,7 @@
 {{> header}}
-
-{{> pokemonNavBar}}
-
+<div id='poke-container'>
+    <div id='poke-nav-list'>
+        {{> pokemonNavBar}}
+    </div>
+</div>
 {{> footer}}

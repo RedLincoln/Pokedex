@@ -18,6 +18,11 @@ router.get('/:name', getPokemons, (req, res) => {
     })
 })
 
+router.get('/api/:name', getPokemons, (req, res) => {
+    const pokemon = req.pokemons.find((pokemon) => pokemon.name === req.params.name)
+    res.json(pokemon)
+})
+
 async function getPokemons(req, res, next) {
     const url = 'https://pokeapi.co/api/v2/pokemon/'
     try {
@@ -44,7 +49,6 @@ async function storePokeInCache(url){
         cache.setKey('count', allPokemons.count)
         const pokeData = await formatPokemons(allPokemons.results)
         cache.setKey('pokemons', pokeData)
-        console.log(pokeData)
         cache.save()
     }catch(err){
         console.log(err)
@@ -56,7 +60,13 @@ async function formatPokemons (pokeResults) {
     await Promise.all(pokeResults.map((pokemon) => fetch(pokemon.url).then((res) => res.json()).then(pokeData => {
         pokemons.push({
             name: pokeData.name,
-            types: pokeData.types.map((type) => type.type.name)
+            types: pokeData.types.map((type) => type.type.name),
+            stats: pokeData.stats.map((stat) => { 
+                return {
+                    'name':stat.stat.name,
+                    'value': stat.base_stat
+            }}),
+            frontImage: pokeData.sprites.front_default
         })
     })))
     return pokemons

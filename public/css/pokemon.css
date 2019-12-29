@@ -1,3 +1,170 @@
 a.active {
     color: red;
 }
+
+#poke-container {
+    display: flex;
+}
+
+#poke-nav-list {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+#poke-nav-list:hover {
+    overflow-y: auto;
+}
+
+html, body {
+    height: 100%;
+}
+
+ul {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    list-style: none;
+}
+
+#row-display {
+    display: flex;
+}
+
+#poke-nav-list>ul li>a {
+    display: block;
+    text-decoration: none;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid #161616;
+    color: black;
+    text-align: center;
+}
+
+[data-type='fire'] {
+    background: #F08030;
+    border: 1px solid #9C531F;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='fighting'] {
+    background: #C03028;
+    border: 1px solid #7D1F1A;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='ground'] {
+    background: #E0C068;
+    border: 1px solid #927D44;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='electric'] {
+    background: #F8D030;
+    border: 1px solid #A1871F;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='grass'] {
+    background: #78C850;
+    border: 1px solid #4E8234;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='ice'] {
+    background: #98D8D8;
+    border: 1px solid #638D8D;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='water'] {
+    background: #6890F0;
+    border: 1px solid #445E9C;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='flying'] {
+    background: #A890F0;
+    border: 1px solid #6D5E9C;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='poison'] {
+    background: #A040A0;
+    border: 1px solid #682A68;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='psychic'] {
+    background: #F85888;
+    border: 1px solid #A13959;
+    padding: 5px 7.5px;
+    color: white
+}
+
+
+[data-type='normal'] {
+    background: #A8A878;
+    border: 1px solid #6D6D4E;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='steel'] {
+    background: #B8B8D0;
+    border: 1px solid #787887;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='rock'] {
+    background: #B8A038;
+    border: 1px solid #786824;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='dragon'] {
+    background: #7038F8;
+    border: 1px solid #4924A1;
+    padding: 5px 7.5px;
+    color: white
+}
+
+
+[data-type='dark'] {
+    background: #705848;
+    border: 1px solid #49392F;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='bug'] {
+    background: #A8B820;
+    border: 1px solid #C6D16E;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='ghost'] {
+    background: #705898;
+    border: 1px solid #493963;
+    padding: 5px 7.5px;
+    color: white
+}
+
+[data-type='fairy'] {
+    background: #F0B6BC;
+    border: 1px solid #F5CAD1;
+    padding: 5px 7.5px;
+    color: white
+}
+
+

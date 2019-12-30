@@ -17,7 +17,11 @@ const dontRender = (event) => {
     event.target.classList.add('active')
     activeAnchor && activeAnchor.classList.remove('active')
     activeAnchor = event.target
-    fetch(`${apiUrl}${activeAnchor.innerHTML}`).then(res => res.json()).then(pokemon => {
+    showPokemonInfo(`${apiUrl}${activeAnchor.innerHTML}`)
+}
+
+const showPokemonInfo = (url) => {
+    fetch(url).then(res => res.json()).then(pokemon => {
         const dataInfo = document.getElementById('poke-info')
         const dataContainer = document.getElementById('poke-container')
         if (dataInfo){
@@ -43,6 +47,7 @@ for (let i = 0; i < pokeAnchors.length; i++){
     if (!activeAnchor && pokeMatch && anchor.innerHTML === pokeMatch[1]){
         anchor.classList.add('active')
         activeAnchor = anchor
+        showPokemonInfo(`${apiUrl}${activeAnchor.innerHTML}`)
     }
 }
 

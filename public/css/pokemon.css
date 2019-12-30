@@ -6,6 +6,10 @@ a.active {
     display: flex;
 }
 
+#poke-info {
+    background: #ff004bfc;
+}
+
 #poke-nav-list {
     height: 100vh;
     overflow-y: hidden;
@@ -19,6 +23,10 @@ a.active {
 html, body {
     height: 100%;
     margin: 0px;
+}
+
+body {
+    background-image: url('https://www.nintendo.co.jp/wallpaper/Pokemon_SS_thanks/img/Pokemon_SS_thanks_1920_1080.jpg');
 }
 
 ul {
@@ -41,6 +49,7 @@ ul {
 
 .poke-nav-item {
     border: 1px solid #cccccc;
+    background: white;
 }
 
 .color-block {

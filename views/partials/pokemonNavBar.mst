@@ -1,5 +1,10 @@
 <ul>
  {{#pokemons}}
-    <li><a class='poke-anchor' id='{{name}}' href='javascript:void(0)'>{{name}}</a></li>
+    <li class='relative poke-nav-item row-display' >
+      {{#types}}
+         <div class='{{name}}-color z-index absolute full-height color-block' data-type-color='{{.}}'></div>
+      {{/types}}
+      <a class='poke-anchor' id='{{name}}' href='javascript:void(0)'>{{name}}</a>
+    </li>
  {{/pokemons}}
 </ul>

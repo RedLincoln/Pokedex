@@ -1,9 +1,16 @@
 const pokemonUrl = 'http://localhost:8081/pokemon/'
 const apiUrl = 'http://localhost:8081/pokemon/api/'
 const pokeAnchors = document.getElementsByClassName('poke-anchor')
+const pokeNavToggle = document.getElementById('toggle-poke-nav')
+const pokeNav = document.getElementById('poke-nav-list')
 const re = /\/pokemon\/([A-Z0-9-]+)/i
 
 let activeAnchor
+
+const togglePokeNav = (event) => {
+    pokeNav.classList.toggle('width-0')
+}
+
 
 const dontRender = (event) => {
     history.pushState(null, '', `${pokemonUrl}${event.target.innerHTML}`)
@@ -20,14 +27,26 @@ const dontRender = (event) => {
     })
 }
 
-for (let i = 0; i < pokeAnchors.length; i++){
-    pokeAnchors.item(i).addEventListener('click', dontRender)
-    const pokeMatch = window.location.pathname.match(re)
-    if (!activeAnchor && pokeMatch && pokeAnchors.item(i).innerHTML === pokeMatch[1]){
-        pokeAnchors.item(i).classList.add('active')
-        activeAnchor = pokeAnchors.item(i)
+const setColorTypes = (colorElements) => {
+    const size = 18
+    const margin = 3
+    for (let i = 0; i < colorElements.length; i++){
+        colorElements.item(i).style.marginRight = `${size * i + (i + 1) * margin}px`
     }
 }
+
+for (let i = 0; i < pokeAnchors.length; i++){
+    const anchor = pokeAnchors.item(i)
+    anchor.addEventListener('click', dontRender)
+    setColorTypes(document.getElementsByClassName(`${anchor.innerHTML}-color`))
+    const pokeMatch = window.location.pathname.match(re)
+    if (!activeAnchor && pokeMatch && anchor.innerHTML === pokeMatch[1]){
+        anchor.classList.add('active')
+        activeAnchor = anchor
+    }
+}
+
+
 
 const nodeInfoConstructor = (pokemon) => {
     const pokeInfo = document.createElement('div')
@@ -45,3 +64,6 @@ const nodeInfoConstructor = (pokemon) => {
 
     return pokeInfo
 }
+
+
+pokeNavToggle.addEventListener('click', togglePokeNav)

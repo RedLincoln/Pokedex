@@ -1,6 +1,6 @@
 <ul>
  {{#pokemons}}
-    <li class='relative poke-nav-item row-display' >
+    <li class='relative poke-nav-item row-display' data-poke-name='{{name}}'>
       {{#types}}
          <div class='{{name}}-color z-index absolute full-height color-block' data-type-color='{{.}}'></div>
       {{/types}}

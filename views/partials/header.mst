@@ -10,5 +10,6 @@
 <nav id='navBar'>
     <ul id='row-display'>
         <span class='icon-button' id='toggle-poke-nav'><i class="fa fa-lg fa-bars" aria-hidden="true"></i></span>
+        <input id='poke-search-input' type='text' placeholder='Search'/>
     </ul>
 </nav>

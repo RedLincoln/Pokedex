@@ -3,14 +3,39 @@ const apiUrl = 'http://localhost:8081/pokemon/api/'
 const pokeAnchors = document.getElementsByClassName('poke-anchor')
 const pokeNavToggle = document.getElementById('toggle-poke-nav')
 const pokeNav = document.getElementById('poke-nav-list')
+const pokeNavItems = document.getElementsByClassName('poke-nav-item')
+const searchInput = document.getElementById('poke-search-input')
 const re = /\/pokemon\/([A-Z0-9-]+)/i
 
 let activeAnchor
 
-const togglePokeNav = (event) => {
+const togglePokeNav = () => {
     pokeNav.classList.toggle('width-0')
 }
 
+const showAllPokemons = () => {
+    for(let i = 0; i < pokeNavItems.length; i++){
+        pokeNavItems.item(i).classList.remove('hidden')
+    }
+}
+
+const applyPokemonFilter = (filter) => {
+    for(let i = 0; i < pokeNavItems.length; i++){
+        if (pokeNavItems.item(i).dataset.pokeName.includes(filter)) {
+            pokeNavItems.item(i).classList.remove('hidden')
+        }else {
+            pokeNavItems.item(i).classList.add('hidden')
+        }
+    }
+}
+
+const searchFilter = (event) => {
+    if (event.target.value.trim() === ''){
+        showAllPokemons()
+    }else{
+        applyPokemonFilter(event.target.value)
+    }
+}
 
 const dontRender = (event) => {
     history.pushState(null, '', `${pokemonUrl}${event.target.innerHTML}`)
@@ -57,7 +82,7 @@ const nodeInfoConstructor = (pokemon) => {
     const pokeInfo = document.createElement('div')
     pokeInfo.setAttribute('id', 'poke-info')
     pokeInfo.innerHTML = `<h3>${pokemon.name}</h3>
-                          <img src='${pokemon.frontImage}' alt='[icon]'>
+                          <img width='96px' height='96px' src='${pokemon.frontImage}' alt='[icon]'>
                           <ul id='row-display'>
                             ${pokemon.types.map((type) => `<li data-type=${type}>${type}</li>`).join('')}
                           </ul>
@@ -72,3 +97,4 @@ const nodeInfoConstructor = (pokemon) => {
 
 
 pokeNavToggle.addEventListener('click', togglePokeNav)
+searchInput.addEventListener('keyup', searchFilter)
